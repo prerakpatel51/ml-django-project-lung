@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,5 +12,232 @@
         <input type="file" name="image" accept="image/*">
         <button type="submit">Predict</button>
     </form>
+</body>
+</html> -->
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pneumonia Detection</title>
+    <style>
+        /* CSS for centering elements within a box */
+        .center-box {
+            text-align: center;
+            margin: 0 auto; /* Center horizontally */
+            width: 80%; /* Adjust the width as needed */
+            border: 1px solid #ccc; /* Border for the box */
+            padding: 20px; /* Padding for the content */
+            height: 600px;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="center-box">
+    <h1>Upload an Image</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image" accept="image/*" id="upload_image">
+        Add an image element to display the selected image 
+        <img id="selected_image" height="400" width="500" src="#" alt="Uploaded Image" style="display: none;">
+        <button type="submit">Predict</button>
+    </form>
+
+     JavaScript to display the selected image 
+    <script>
+        // Function to display the selected image
+        function previewImage(event) {
+            var input = event.target;
+            var reader = new FileReader();
+            reader.onload = function(){
+                var img = document.getElementById('selected_image');
+                img.src = reader.result;
+                img.style.display = 'block';
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+        
+        // Attach event listener to the file input element
+        document.getElementById('upload_image').addEventListener('change', previewImage);
+    </script>
+</div>
+</body>
+</html> -->
+
+
+<!-- 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pneumonia Detection</title>
+    <style>
+        /* CSS for centering elements within a box */
+
+        body{
+background-color: aqua;
+        }
+
+        .center-box {
+            text-align: center;
+            margin: 0 auto; /* Center horizontally */
+            width: 80%; /* Adjust the width as needed */
+            border: 1px solid #ccc; /* Border for the box */
+            padding: 20px; /* Padding for the content */
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 20px;
+            margin-top: 50px;
+            background-color: black;
+            color: white;
+        }
+
+        /* CSS for centering the image */
+        #selected_image {
+            margin: 0 auto; /* Center horizontally */
+            display: block; /* Display as block element to apply margin */
+            max-width: 100%; /* Limit the image width to fit the container */
+            max-height: 400px; /* Limit the image height to fit the container */
+            margin-top: 20px;
+            margin-bottom:20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="center-box">
+        <h1>Upload an Image</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="image" accept="image/*" id="upload_image">
+             Add an image element to display the selected image
+            <img id="selected_image" src="#" alt="Uploaded Image" style="display: none;">
+            <button type="submit">Predict</button>
+        </form>
+
+         JavaScript to display the selected image
+        <script>
+            // Function to display the selected image
+            function previewImage(event) {
+                var input = event.target;
+                var reader = new FileReader();
+                reader.onload = function(){
+                    var img = document.getElementById('selected_image');
+                    img.src = reader.result;
+                    img.style.display = 'block';
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+            
+            // Attach event listener to the file input element
+            document.getElementById('upload_image').addEventListener('change', previewImage);
+        </script>
+    </div>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pneumonia Detection</title>
+    <style>
+        /* CSS for centering elements within a box */
+
+        body{
+            background-color:#2272FF;
+        }
+
+        .center-box {
+            text-align: center;
+            margin: 0 auto; /* Center horizontally */
+            width: 80%; /* Adjust the width as needed */
+            border: 1px solid #ccc; /* Border for the box */
+            padding: 20px; /* Padding for the content */
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 20px;
+            margin-top: 50px;
+            background-color: black;
+            color: white;
+        }
+
+        /* CSS for centering the image */
+        #selected_image {
+            margin: 0 auto; /* Center horizontally */
+            display: block; /* Display as block element to apply margin */
+            max-width: 100%; /* Limit the image width to fit the container */
+            max-height: 400px; /* Limit the image height to fit the container */
+            margin-top: 20px;
+            margin-bottom:20px;
+        }
+
+        /* CSS for styling the buttons */
+        input[type="file"],
+        button[type="submit"] {
+            padding: 10px 20px; /* Increase padding to make buttons larger */
+            font-size: 16px; /* Increase font size for better readability */
+            border-radius: 10px; /* Add border radius for rounded corners */
+            background-color: #007bff; /* Blue color for buttons */
+            color: white; /* White text color */
+            border: none; /* Remove default button border */
+            cursor: pointer; /* Add cursor pointer on hover */
+            margin-top: 10px; /* Add margin top for spacing */
+        }
+
+        /* Hover effect for buttons */
+        input[type="file"]:hover,
+        button[type="submit"]:hover {
+            background-color: #0056b3; /* Darker blue color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="center-box">
+        <h1>Upload an Image</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="image" accept="image/*" id="upload_image">
+            <!-- Add an image element to display the selected image -->
+            <img id="selected_image" src="#" alt="Uploaded Image" style="display: none;">
+            <button type="submit">Predict</button>
+        </form>
+
+        <!-- JavaScript to display the selected image -->
+        <script>
+            // Function to display the selected image
+            function previewImage(event) {
+                var input = event.target;
+                var reader = new FileReader();
+                reader.onload = function(){
+                    var img = document.getElementById('selected_image');
+                    img.src = reader.result;
+                    img.style.display = 'block';
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+            
+            // Attach event listener to the file input element
+            document.getElementById('upload_image').addEventListener('change', previewImage);
+        </script>
+    </div>
 </body>
 </html>
